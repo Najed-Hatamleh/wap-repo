@@ -1,3 +1,8 @@
 .emphasized {
 	font-weight: 600;
+	color: #c30000;
+}
+
+body {
+	background-color: #658fb9
 }
