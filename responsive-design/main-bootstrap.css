@@ -1,0 +1,33 @@
+.main {
+    font-size: 18pt;
+}
+
+.header {
+    padding: 16px;
+    font-size: 20pt;
+    background-color: lightblue;
+    font-weight: 600;
+    justify-content: space-around;
+}
+
+.menus {
+    background-color: darkgreen;
+}
+.menus > * {
+    border-right: 1px solid black;
+}
+.footer {
+    background-color: darkgreen;
+    justify-content: space-around;
+}
+
+.dark-gray {
+    background-color: darkgray;
+}
+.column2 {
+    background-color: darkcyan;
+}
+
+.dark-blue {
+    background-color: darkblue;
+}
