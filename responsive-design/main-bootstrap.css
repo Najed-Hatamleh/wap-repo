@@ -1,5 +1,6 @@
 .main {
     font-size: 18pt;
+    max-width: -webkit-fill-available !important;
 }
 
 .header {
@@ -10,13 +11,22 @@
     justify-content: space-around;
 }
 
+.columns > * {
+    height: 100px;
+}
+
 .menus {
     background-color: darkgreen;
 }
 .menus > * {
+    color: white;
     border-right: 1px solid black;
 }
 .footer {
+    padding: 16px;
+    font-size: 20pt;
+    color: white;
+    justify-content: space-around;
     background-color: darkgreen;
     justify-content: space-around;
 }

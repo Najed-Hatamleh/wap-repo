@@ -18,6 +18,8 @@
     flex-direction: row;
 }
 .menus > * {
+    color: white;
+    padding: 5px;
     border-right: 1px solid black;
 }
 
@@ -31,6 +33,10 @@
 }
 
 .footer {
+    padding: 16px;
+    font-size: 20pt;
+    color: white;
+    text-align: center;
     background-color: darkgreen;
 }
 
