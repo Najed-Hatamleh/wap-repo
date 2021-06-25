@@ -41,3 +41,9 @@
 .dark-blue {
     background-color: darkblue;
 }
+
+@media (max-width: 575px) {
+    .column2 {
+        order: 3;
+    }
+}
