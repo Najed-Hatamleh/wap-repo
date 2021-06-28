@@ -31,13 +31,7 @@ function reverse(str) {
 }
 
 function findLongestWord(wordArray) {
-    let longest = wordArray[0];
-    for (ele of wordArray) {
-      if (longest.length < ele.length) {
-        longest = ele;
-      }
-    }
-    return longest;
+    return wordArray.sort((word1, word2) => word2.length - word1.length).shift()
 }
 
 function  filterLongWords(workArray, length)  {
