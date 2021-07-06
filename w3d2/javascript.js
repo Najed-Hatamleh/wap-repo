@@ -1,7 +1,6 @@
 "use strict"
 
-$(document).ready(function() {
-    let circuleCreationTimer;
+$(function() {
     let circuleOpacityTimer;
 
     $('.start').on('click', function() {
@@ -10,35 +9,41 @@ $(document).ready(function() {
             return;
         }
 
-        let createdElement;
-        let circulesWidth = $('.circules').width();
         while(circulesNumber-- > 0) {
-           createdElement = $("<div class='circule'><div>");
-           createdElement.css("background-color", getRandomColor());
-           createdElement.css("left", Math.floor(circulesWidth * Math.random()));
-           createdElement.appendTo(".circules");
+            createCircule();
         }
 
-        $('.circule').css('width', parseInt($('#set-width').val()));
-        $('.circule').css('height', parseInt($('#set-width').val()));
-
-        circuleCreationTimer = setInterval(grow, parseInt($('#set-growth-rate').val()), $('.circule'));
-    });
-
-    $(document).on('click', '.circule', function() {
-        this.remove();
-        clearInterval(circuleCreationTimer);
+        $('.circule').css({
+            "width": parseInt($('#set-width').val()),
+            "height": parseInt($('#set-width').val())
+        });
     });
 
     $(document).on('mouseenter', '.circule', function() {
-        circuleOpacityTimer = setInterval(opactiy, 1000, $(this));
+        circuleOpacityTimer = setInterval(opactiy, 400, $(this));
     });
 
     $(document).on('mouseleave', '.circule', function() {
-        $(this).css("opactiy", 1.0);
+        $(this).css("opacity", '100%');
         clearInterval(circuleOpacityTimer);
     });
 });
+
+function createCircule() {
+    let createdElement;
+    let circulesWidth = $('.circules').width();
+
+    createdElement = $("<div class='circule'><div>");
+    createdElement.css("background-color", getRandomColor());
+    createdElement.css("left", Math.floor(circulesWidth * Math.random()));
+    createdElement.appendTo(".circules");
+
+    let circuleCreationTimer = setInterval(grow, parseInt($('#set-growth-rate').val()), createdElement);
+    createdElement.click(() => {
+        createdElement.remove();
+        clearInterval(circuleCreationTimer);
+    });
+}
 
 function grow(element) {
     element.css('height', element.height() + parseInt($('#set-growth-amount').val()));
@@ -46,7 +51,7 @@ function grow(element) {
 }
 
 function opactiy(element) {
-    element.css("opacity", element.css("opacity") - 0.3);
+    element.css("opacity", (index, value) => value * 0.8);
 }
 
 // Some guidunce from the internet, refereance: https://stackoverflow.com/questions/1484506/random-color-generator
